@@ -1,0 +1,45 @@
+{
+	"name": "shine-on-hover",
+	"version": "0.0.1",
+	"description": "Lightweight, zero-dependency utility that adds a mouse-tracking shine effect on hover.",
+	"keywords": [
+		"shine-on-hover",
+		"hover-effect",
+		"cursor-tracking",
+		"interactive-ui",
+		"ui-utility",
+		"lightweight",
+		"zero-dependency",
+		"vanilla-js",
+		"javascript"
+	],
+	"author": {
+		"name": "Yurik",
+		"email": "inbox@yurik.dev",
+		"url": "https://yurik.dev"
+	},
+	"license": "MIT",
+	"repository": "https://github.com/yurikdotdev/shine-on-hover",
+	"bugs": "https://github.com/yurikdotdev/shine-on-hover/issues",
+	"type": "module",
+	"main": "./dist/index.js",
+	"types": "./dist/index.d.ts",
+	"exports": {
+		".": {
+			"import": "./dist/index.js"
+		}
+	},
+	"files": [
+		"dist"
+	],
+	"scripts": {
+		"build": "bun build src/index.ts --outdir dist --minify && tsc --emitDeclarationOnly"
+	},
+	"peerDependencies": {
+		"typescript": "^5.0.0"
+	},
+	"devDependencies": {
+		"@happy-dom/global-registrator": "^17.4.6",
+		"@types/bun": "latest"
+	}
+}
