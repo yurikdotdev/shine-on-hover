@@ -5,6 +5,7 @@ type CSSColorFunction =
 	| `rgba(${number}, ${number}, ${number}, ${number})`
 	| `hsl(${number}deg ${number}% ${number}%)`
 	| `hsl(${number}deg ${number}% ${number}%/ ${number}%)`
+	| `hsl(${number}deg ${number}% ${number}% / ${number}%)`
 	| `hsla(${number}, ${number}%, ${number}%, ${number})`
 	| `#${string}`;
 
