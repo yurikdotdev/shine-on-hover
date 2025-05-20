@@ -7,7 +7,8 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@astrojs/react": "^4.2.7",
@@ -22,5 +23,8 @@
     "shine-on-hover": "^0.0.1",
     "tailwindcss": "^4.1.5",
     "vue": "^3.5.13"
+  },
+  "devDependencies": {
+    "gh-pages": "^6.3.0"
   }
 }

@@ -1,0 +1,60 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width"><link rel="icon" type="image/svg+xml" href="/favicon.png"><meta name="generator" content="Astro v5.7.11"><title>Shine on Hover</title><link rel="stylesheet" href="/shine-on-hover/_astro/index.C0sTnNYs.css"></head> <body class="bg-zinc-900 text-slate-100 flex flex-col items-center justify-center min-h-screen">  <div class="head-section flex flex-col items-center mx-auto justify-center gap-2 mb-4 w-screen h-screen px-4 sm:px-8"> <h1 class="text-4xl sm:text-6xl font-gabarito text-center">shine on hover</h1> <p class="font-jost text-sm sm:text-md text-center">
+Lightweight, zero-dependency library for adding a mouse-tracking shine effect.
+</p> <pre class="absolute bottom-10 left-1/2 -translate-x-1/2 text-xs sm:text-base"><code>npm install shine-on-hover</code></pre> </div>  <div class="flex flex-col sm:flex-row flex-wrap justify-center items-center gap-4 mt-10 sm:mt-20 border-t-zinc-800 p-4 sm:p-24"> <!-- Default --> <div class="default p-8 text-white border border-zinc-800 w-96 h-36 rounded-lg"> <h2 class="font-gabarito text-lg font-bold">Default Shine</h2> <p class="font-jost text-md font-light">This is the default shine configuration</p> </div> <!-- Custom Shine Color --> <div class="custom-color p-8 text-white border border-zinc-800 w-96 h-36 rounded-lg"> <h2 class="font-gabarito text-lg font-bold">Custom Color</h2> <p class="font-jost text-md font-light">You can change the shine color to suit your needs</p> </div> <!-- Custom Shine Size --> <div class="custom-size-small p-8 text-white border border-zinc-800 w-96 h-36 rounded-lg"> <h2 class="font-gabarito text-lg font-bold">Smaller Shine Size</h2> <p class="font-jost text-md font-light">5% shineSize</p> </div> <div class="custom-size-big p-8 text-white border border-zinc-800 w-96 h-36 rounded-lg"> <h2 class="font-gabarito text-lg font-bold">Larger Shine Size</h2> <p class="font-jost text-md font-light">40% shineSize</p> </div> <!-- Custom Shine Spread --> <div class="custom-spread-small p-8 text-white border border-zinc-800 w-96 h-36 rounded-lg"> <h2 class="font-gabarito text-lg font-bold">Smaller Spread Size</h2> <p class="font-jost text-md font-light">10% shineSpread</p> </div> <div class="custom-spread-big p-8 text-white border border-zinc-800 w-96 h-36 rounded-lg"> <h2 class="font-gabarito text-lg font-bold">Larger Spread Size</h2> <p class="font-jost text-md font-light">80% shineSpread</p> </div> </div>  </body></html> <script type="module">var d={PERFORMANCE:70,BALANCE:30,SMOOTH:10},f={smoothness:"BALANCE",shineSize:"5%",shineSpread:"50%",shineColor:"hsl(0deg 0% 100%/ 4%)",shineBorder:"transparent"},c={mouseX:"--shine-x",mouseY:"--shine-y",shineFrom:"--shine-from",shineTo:"--shine-to",shineColor:"--shine-color",shineBorder:"--shine-border"},u=`
+.shine-effect {
+  --shine-x: 0%;
+  --shine-y: 0%;
+  --shine-from: 0%;
+  --shine-to: 0%;
+  --shine-border: transparent;
+
+  isolation: isolate;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    pointer-events: none;
+    content: '';
+
+    position: absolute;
+    z-index: 1;
+    inset: 1px;
+    border-radius: inherit; 
+
+    opacity: 0;
+    background: radial-gradient(
+      circle at var(--shine-x) var(--shine-y),
+      var(--shine-color) var(--shine-from),
+      transparent var(--shine-to)
+    );
+
+    outline: 1px solid var(--shine-border);
+    outline-offset: -1px;
+    box-shadow: 
+      inset 0 0 10px calc(8px * (1 - (var(--shine-x) + var(--shine-y)) / 200)) var(--shine-border),
+      0 0 20px calc(12px * (1 - (var(--shine-x) + var(--shine-y)) / 200)) var(--shine-border);
+
+    transition: 
+      opacity 150ms cubic-bezier(0, 0, 0.2, 1),
+      box-shadow 150ms cubic-bezier(0, 0, 0.2, 1);
+  }
+
+  &::after {
+    pointer-events: none;
+    content: '';
+
+    position: absolute;
+    z-index: 0;
+    inset: 0;
+    border-radius: inherit;
+
+    opacity: 0;
+    transition: opacity 150ms cubic-bezier(0, 0, 0.2, 1);
+  }
+
+  &:hover::before,
+  &:hover::after {
+    opacity: 1;
+  }
+}
+`;function m(e){if(typeof document>"u")return;let t="shine-effect-styles";if(document.getElementById(t))return;let n=document.createElement("style");n.id=t,n.textContent=e,document.head.appendChild(n)}function p(){if(typeof document>"u")return;let e=document.getElementById("shine-effect-styles");e&&e.remove()}var a=new WeakMap,v=(e,t,n)=>({xPercent:(t-e.left)/e.width*100,yPercent:(n-e.top)/e.height*100}),y=(e,t,n,i)=>{let{xPercent:o,yPercent:s}=v(e,t,n);return{mouseX:`${o}%`,mouseY:`${s}%`,shineFrom:i.shineSize,shineTo:i.shineSpread,shineColor:i.shineColor,shineBorder:i.shineBorder}},b=(e,t)=>{requestAnimationFrame(()=>{Object.entries(c).forEach(([n,i])=>{e.style.setProperty(i,t[n])})})},h=e=>{requestAnimationFrame(()=>{Object.values(c).forEach(t=>{e.style.removeProperty(t)})})},x=e=>{document.querySelectorAll(".shine-effect").forEach(t=>{let n=a.get(t);if(!n)return;let i=Date.now(),o=d[n.config.smoothness];if(i-n.lastCall<o)return;n.lastCall=i;let s=t.getBoundingClientRect(),l=y(s,e.clientX,e.clientY,n.config);b(t,l)})},g=e=>{e.relatedTarget?.closest(".shine-effect")||document.querySelectorAll(".shine-effect").forEach(t=>h(t))};typeof document<"u"&&(document.addEventListener("mousemove",x),document.addEventListener("mouseleave",g));var r=(e,t)=>{m(u);let n=typeof e=="string"?document.querySelectorAll(e):[e];if(n.length===0)return console.warn(`[shine-on-hover]: No elements found matching selector: "${e}"`),()=>{};let i={...f,...t};return n.forEach(o=>{o.classList.add("shine-effect"),a.set(o,{config:i,lastCall:0})}),()=>{n.forEach(o=>{o.classList.remove("shine-effect"),a.delete(o),h(o)}),!document.querySelector(".shine-effect")&&p()}};r(".head-section",{shineSize:"30%",shineSpread:"50%"});r(".default");r(".custom-color",{shineColor:"red"});r(".custom-size-small",{shineSize:"5%"});r(".custom-size-big",{shineSize:"40%"});r(".custom-spread-small",{shineSpread:"10%"});r(".custom-spread-big",{shineSpread:"80%"});</script>

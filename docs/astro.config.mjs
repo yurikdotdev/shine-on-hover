@@ -11,8 +11,8 @@ import icon from 'astro-icon';
 
 // https://astro.build/config
 export default defineConfig({
+  base: '/shine-on-hover/',
   integrations: [react(), vue(), icon()],
-
   vite: {
     plugins: [tailwindcss()]
   }
