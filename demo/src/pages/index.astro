@@ -1,0 +1,68 @@
+---
+import VanillaCard from '../components/VanillaCard.astro';
+import Layout from '../layouts/Layout.astro';
+
+import '../styles/global.css';
+---
+
+<Layout>
+	<div class='head-section flex flex-col items-center mx-auto justify-center gap-2 mb-4 w-screen h-screen px-4 sm:px-8'>
+		<h1 class='text-4xl sm:text-6xl font-gabarito text-center'>shine on hover</h1>
+		<p class='font-jost text-sm sm:text-md text-center'>
+			Lightweight, zero-dependency library for adding a mouse-tracking shine effect.
+		</p>
+		<pre
+			class='absolute bottom-10 left-1/2 -translate-x-1/2 text-xs sm:text-base'><code>npm install shine-on-hover</code></pre>
+	</div>
+
+	<!-- Shine Config Demo -->
+	<div
+		class='flex flex-col sm:flex-row flex-wrap justify-center items-center gap-4 mt-10 sm:mt-20 border-t-zinc-800 p-4 sm:p-24'>
+		<!-- Default -->
+		<VanillaCard customClass='default' title='Default Shine' description='This is the default shine configuration' />
+
+		<!-- Custom Shine Color -->
+		<VanillaCard
+			customClass='custom-color'
+			title='Custom Color'
+			description='You can change the shine color to suit your needs'
+		/>
+
+		<!-- Custom Shine Size -->
+		<VanillaCard customClass='custom-size-small' title='Smaller Shine Size' description='5% shineSize' />
+		<VanillaCard customClass='custom-size-big' title='Larger Shine Size' description='40% shineSize' />
+
+		<!-- Custom Shine Spread -->
+		<VanillaCard customClass='custom-spread-small' title='Smaller Spread Size' description='10% shineSpread' />
+		<VanillaCard customClass='custom-spread-big' title='Larger Spread Size' description='80% shineSpread' />
+	</div>
+</Layout>
+
+<script>
+	import { shine } from 'shine-on-hover';
+
+	shine('.head-section', {
+		shineSize: '30%',
+		shineSpread: '50%',
+	});
+
+	shine('.default');
+
+	shine('.custom-color', {
+		shineColor: 'red',
+	});
+
+	shine('.custom-size-small', {
+		shineSize: '5%',
+	});
+	shine('.custom-size-big', {
+		shineSize: '40%',
+	});
+
+	shine('.custom-spread-small', {
+		shineSpread: '10%',
+	});
+	shine('.custom-spread-big', {
+		shineSpread: '80%',
+	});
+</script>

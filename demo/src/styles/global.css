@@ -1,0 +1,53 @@
+@import 'tailwindcss';
+
+@font-face {
+	font-family: Gabarito;
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+	src: url('/fonts/gabarito-v7-latin-regular.woff2') format('woff2');
+	unicode-range: U+0020-007E;
+}
+
+@font-face {
+	font-family: Gabarito;
+	font-weight: 500;
+	font-style: normal;
+	font-display: swap;
+	src: url('/fonts/gabarito-v7-latin-500.woff2') format('woff2');
+	unicode-range: U+0020-007E;
+}
+
+@font-face {
+	font-family: Jost;
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+	src: url('/fonts/jost-v18-latin-regular.woff2') format('woff2');
+	unicode-range: U+0020-007E;
+}
+
+@font-face {
+	font-family: Jost;
+	font-weight: 600;
+	font-style: italic;
+	font-display: swap;
+	src: url('/fonts/jost-v18-latin-600italic.woff2') format('woff2');
+	unicode-range: U+0020-007E;
+}
+
+@font-face {
+	font-family: 'Atkinson Hyperlegible Next';
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+	src: url('/fonts/atkinson_hyperlegible_next-v2-regular.woff2') format('woff2');
+	unicode-range: U+0020-007E;
+}
+
+@theme {
+	--font-jost: 'Jost', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+	--font-atkinson: 'Atkinson Hyperlegible Next', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial,
+		sans-serif;
+	--font-gabarito: 'Gabarito', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+}

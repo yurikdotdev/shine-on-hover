@@ -1,0 +1,14 @@
+---
+interface Props {
+	title: string;
+	description: string;
+	customClass?: string;
+}
+
+const { title, description, customClass } = Astro.props;
+---
+
+<div class=`${customClass} p-8 text-white border border-zinc-800 w-96 h-36 rounded-lg`>
+	<h2 class="font-gabarito text-lg font-bold">{title}</h2>
+	<p class="font-jost text-md font-light">{description}</p>
+</div>
