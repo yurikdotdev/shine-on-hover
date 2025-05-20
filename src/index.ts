@@ -33,15 +33,6 @@ if (typeof document !== 'undefined') {
  *   shineSize: '15%',
  *   shineSpread: '70%'
  * });
- *
- * // With React
- * useEffect(() => shine('.my-button'), []);
- *
- * // With Vue
- * onMounted(() => {
- *   const cleanup = shine('.my-button');
- *   onUnmounted(cleanup);
- * });
  * ```
  */
 export const shine = (target: string | HTMLElement, config?: ShineConfig) => {

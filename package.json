@@ -1,7 +1,7 @@
 {
 	"name": "shine-on-hover",
-	"version": "0.0.1",
-	"description": "Lightweight, zero-dependency utility that adds a mouse-tracking shine effect on hover.",
+	"version": "0.0.2",
+	"description": "Lightweight, zero-dependency library for adding a mouse-tracking shine effect.",
 	"keywords": [
 		"shine-on-hover",
 		"hover-effect",
